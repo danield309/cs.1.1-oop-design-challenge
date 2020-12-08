@@ -24,10 +24,6 @@ class Dog(Pet): # Inherits from Pet class
     def speak(self):
         print("Woof")
 
-class Dolphin(Pet):
-    def sonar(self):
-        print ("Locating fish swimming around me!")
-
 # Instance of Pet class
 p = Pet("Max", 7)
 p.show()
@@ -40,7 +36,16 @@ c.show()
 d = Dog("Max", 7)
 d.speak()
 
-# Instance of Dolphin class
-t = Dolphin("Timmy", 10)
-t.speak()
-t.sonar()
+class Person:
+    numPeople = 0 # class attribute specific to class
+    
+    def __init__(self, name): # using init method to create a new class seperate from the Pet class
+        self.name = name
+        Person.numPeople += 1 # add 1 to numPeople
+        
+p1 = Person("Daniel") # adding instances of Person 
+print(Person.numPeople)
+p2 = Person("Travis")
+print(Person.numPeople)
+p3 = Person("Aubrey")
+print(Person.numPeople) # each instance made will add 1 to the numPeople
